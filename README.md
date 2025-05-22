@@ -1,9 +1,10 @@
 
-# DevOps Shack User Management App
+# Production Project User Management App
 
 This is a full-stack application for managing users with a front-end built using HTML, CSS, and JavaScript, and a back-end powered by Node.js, Express, and MySQL.
 
-## Table of Contents
+## Table of Contents:
+
 
 - [Features](#features)
 - [Prerequisites](#prerequisites)
@@ -165,5 +166,5 @@ After following the setup instructions, you can access the application by naviga
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### NOTE: This Application Should not be used for commercial purpose by anyone else other than DevOps Shack
+### NOTE: This Application Should not be used for commercial purpose by anyone else other than Production Project
 
