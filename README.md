@@ -162,6 +162,126 @@ After following the setup instructions, you can access the application by naviga
 - **Edit User:** Click the "Edit" button next to a user entry to update their details.
 - **Delete User:** Click the "Delete" button next to a user entry to remove them from the list.
 
+Here’s a concise article-style write-up with all the commands you used to get the **3-Tier NodeJS + MySQL Docker** app running from cloning to launch:
+
+---
+
+## 🚀 How to Run a 3-Tier NodeJS + MySQL App with Docker Compose
+
+This guide walks through the steps to set up and run a simple 3-tier architecture app using Node.js, MySQL, and Docker Compose.
+
+### 🧱 Step-by-Step Setup
+
+#### 1. **Clone the Repository**
+
+```
+git clone https://github.com/AsadR91/3-Tier-NodeJS-MySql-Docker.git
+cd 3-Tier-NodeJS-MySql-Docker
+```
+
+#### 2. **Ensure Docker and Docker Compose Are Installed**
+
+Verify Docker is installed:
+
+```
+docker --version
+docker compose version
+```
+
+#### 3. **Build and Start the Containers**
+
+This command will build the images (if needed) and start all services defined in the `docker-compose.yml`:
+
+```
+docker compose up --build
+```
+
+You should see logs from `mysql`, `adminer`, and the `app` services.
+
+#### 4. **Verify Everything Is Working**
+
+* Node.js server runs at: `http://localhost:5000`
+* Adminer (DB GUI) is available at: `http://localhost:8080`
+
+  * System: MySQL
+  * Server: `mysql`
+  * User: `root`
+  * Password: `password`
+  * Database: `test_db`
+
+#### 5. **Troubleshooting Connection Issues (Optional)**
+
+If you get connection errors:
+
+* Ensure Node.js app is configured to connect to `host: 'mysql'`
+* Add health checks in `docker-compose.yml` to delay app start
+* Restart everything:
+
+```
+docker compose down
+docker compose up --build
+```
+
+## 🛠️ Interacting with MySQL in Docker: Commands to Explore the DB
+
+Once your MySQL container is running via Docker Compose, you can interact with it directly from the command line using `docker exec`.
+
+### 🔍 Step-by-Step MySQL Exploration
+
+#### 1. **Access the MySQL Container**
+
+```
+docker exec -it mysql mysql -u root -p
+```
+
+Enter the password when prompted:
+
+```
+password
+```
+
+---
+
+#### 2. **Show All Databases**
+
+```
+SHOW DATABASES;
+```
+OR
+```
+show databases;
+```
+
+Look for your app database (e.g., `test_db`).
+
+---
+
+#### 3. **Use the App’s Database**
+
+```
+USE test_db;
+```
+
+---
+
+#### 4. **List All Tables**
+
+```
+SHOW TABLES;
+```
+
+You should see a table named `users`.
+
+---
+
+#### 5. **View Contents of the `users` Table**
+
+```
+SELECT * FROM users;
+```
+
+This will return user records that were either seeded or inserted via the Node.js app.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
