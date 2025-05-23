@@ -162,10 +162,6 @@ After following the setup instructions, you can access the application by naviga
 - **Edit User:** Click the "Edit" button next to a user entry to update their details.
 - **Delete User:** Click the "Delete" button next to a user entry to remove them from the list.
 
-Here’s a concise article-style write-up with all the commands you used to get the **3-Tier NodeJS + MySQL Docker** app running from cloning to launch:
-
----
-
 ## 🚀 How to Run a 3-Tier NodeJS + MySQL App with Docker Compose
 
 This guide walks through the steps to set up and run a simple 3-tier architecture app using Node.js, MySQL, and Docker Compose.
