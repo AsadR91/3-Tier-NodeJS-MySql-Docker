@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+#<<<<<<< HEAD   
 # Use an alpine Node.js runtime as a parent image
 FROM node:14-alpine
 
@@ -38,7 +38,7 @@ EXPOSE 5000
 # Command to run the server
 CMD ["npm", "start"]
 
-=======
+#=======
 # Base image
 FROM node:18
 
@@ -67,4 +67,4 @@ RUN mkdir -p ./public && cp -R /usr/src/app/client/dist/* ./public/
 EXPOSE 5000
 
 CMD ["npm", "start"]
->>>>>>> f2bfdc2 (Initial commit: fix package.json and setup project)
+#>>>>>>> f2bfdc2 (Initial commit: fix package.json and setup project)
