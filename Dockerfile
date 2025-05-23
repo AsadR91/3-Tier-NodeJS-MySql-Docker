@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Use an alpine Node.js runtime as a parent image
 FROM node:14-alpine
 
@@ -37,3 +38,33 @@ EXPOSE 5000
 # Command to run the server
 CMD ["npm", "start"]
 
+=======
+# Base image
+FROM node:18
+
+# ====== CLIENT BUILD ======
+WORKDIR /usr/src/app/client
+
+COPY client/package*.json ./
+RUN npm install
+
+COPY client/ ./
+RUN npm run build
+
+# ====== SERVER BUILD ======
+WORKDIR /usr/src/app/server
+
+COPY server/package*.json ./
+#RUN npm install  
+RUN npm install --legacy-peer-deps
+
+
+COPY server/ ./
+
+# Copy client build output to server's public directory
+RUN mkdir -p ./public && cp -R /usr/src/app/client/dist/* ./public/
+
+EXPOSE 5000
+
+CMD ["npm", "start"]
+>>>>>>> f2bfdc2 (Initial commit: fix package.json and setup project)
